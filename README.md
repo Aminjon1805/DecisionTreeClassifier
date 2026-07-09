@@ -1,72 +1,174 @@
-# Titanic Survival Prediction using Decision Tree
+# Titanic Survival Prediction with Tree-Based Machine Learning
 
-## Overview
+A machine learning project focused on understanding and comparing three popular tree-based classification algorithms on the Titanic dataset.
 
-This project demonstrates the complete machine learning workflow for a Decision Tree Classifier using the Titanic dataset. Instead of relying only on automated tools, the model was built and optimized manually to better understand how each hyperparameter affects model complexity and performance.
+---
+
+## Project Objective
+
+The goal of this project is not only to build accurate classifiers but also to understand how different tree-based algorithms learn from data, how their hyperparameters influence performance, and how they compare under the same preprocessing pipeline.
+
+The project includes:
+
+- Decision Tree Classifier
+- Random Forest Classifier
+- XGBoost Classifier
+
+---
+
+## Dataset
+
+**Dataset:** Titanic (`train.csv`)
+
+**Problem Type:** Binary Classification
+
+**Target Variable:** `Survived`
 
 ---
 
 ## Project Workflow
 
-The project was completed in the following order:
-
-1. Loaded and explored the dataset.
-2. Removed irrelevant features.
-3. Handled missing values without introducing data leakage.
-4. Encoded categorical features.
-5. Split the data into training, cross-validation, and test sets.
-6. Trained a baseline Decision Tree.
-7. Identified overfitting.
-8. Manually tuned the following hyperparameters:
-   - `max_depth`
-   - `min_samples_split`
-   - `min_samples_leaf`
-   - `criterion`
-   - `ccp_alpha`
-   - `max_leaf_nodes`
-9. Compared the manually tuned model with `GridSearchCV`.
-10. Evaluated the final model on the test set.
+1. Load the dataset.
+2. Explore the data.
+3. Handle missing values.
+4. Encode categorical variables.
+5. Split the dataset into:
+   - Training Set
+   - Cross-Validation Set
+   - Test Set
+6. Train each model.
+7. Tune hyperparameters.
+8. Compare model performance.
+9. Evaluate the final model on the test set.
 
 ---
 
-## Results
+# Models Implemented
 
-### Manual Hyperparameter Tuning
+## Decision Tree
 
-| Dataset | Accuracy |
-|---------|---------:|
-| Train | 0.8296 |
-| Cross Validation | 0.7921 |
-| Test | 0.8045 |
-
-### GridSearchCV
-
-| Dataset | Accuracy |
-|---------|---------:|
-| Train | 0.8539 |
-| Cross Validation | 0.7697 |
-| Test | 0.7821 |
-
-The manually tuned model achieved better validation and test accuracy while maintaining a simpler Decision Tree.
+- Built a baseline classifier.
+- Manually tuned model complexity.
+- Visualized generated trees.
+- Studied overfitting and pruning.
 
 ---
 
-## What I Learned
+## Random Forest
 
-Through this project I gained practical experience with:
+- Compared against a single Decision Tree.
+- Tuned important hyperparameters.
+- Investigated how ensembles improve generalization.
+- Analyzed the effect of multiple trees on performance.
+
+---
+
+## XGBoost
+
+- Implemented gradient boosting for classification.
+- Used `RandomizedSearchCV` for automated hyperparameter tuning.
+- Explored the impact of:
+  - max_depth
+  - learning_rate
+  - n_estimators
+  - subsample
+  - colsample_bytree
+  - min_child_weight
+  - reg_lambda
+
+---
+
+# Hyperparameter Tuning
+
+Different tuning strategies were applied throughout the project.
+
+- Manual hyperparameter tuning
+- Cross-validation model selection
+- RandomizedSearchCV for XGBoost
+
+The objective was to understand how each parameter influences model complexity, overfitting, and generalization rather than simply maximizing accuracy.
+
+---
+
+# Feature Engineering
+
+**No feature engineering was performed in this project.**
+
+The purpose of this repository is to compare the algorithms under the same preprocessing pipeline.
+
+This makes the comparison between Decision Tree, Random Forest, and XGBoost more objective, since all models receive identical input features.
+
+Feature engineering will be explored in future projects.
+
+---
+
+# Skills Practiced
 
 - Data preprocessing
-- Preventing data leakage
-- Decision Tree Classification
+- Missing value handling
+- Categorical encoding
+- Model training
 - Hyperparameter tuning
-- Overfitting analysis
 - Cross-validation
-- Model evaluation
-- Comparing manual optimization with GridSearchCV
+- Model comparison
+- Performance evaluation
+- Tree visualization
+- Gradient Boosting
+- Ensemble Learning
 
-One of the main observations was that carefully selected manual hyperparameters produced better results than GridSearchCV on this dataset. This also provided a deeper understanding of how each Decision Tree hyperparameter influences model complexity and generalization.
 ---
 
-## Conclusion
+# Repository Structure
 
-This project demonstrates the complete development of a Decision Tree classification model, from preprocessing to final evaluation. It also highlights the importance of understanding hyperparameter tuning rather than relying solely on automated optimization methods.
+```
+.
+├── images/
+├── DecisionTree.ipynb
+├── RandomForest.ipynb
+├── XGBoost.ipynb
+├── train.csv
+└── README.md
+```
+
+---
+
+# Technologies
+
+- Python
+- NumPy
+- Pandas
+- Matplotlib
+- Scikit-learn
+- XGBoost
+
+---
+
+# Future Improvements
+
+- Feature engineering
+- Feature importance analysis
+- SHAP value interpretation
+- Stratified K-Fold Cross Validation
+- Advanced XGBoost tuning
+- Comparison after feature engineering
+
+---
+
+# Key Takeaways
+
+Through this project I learned:
+
+- How Decision Trees construct decision boundaries.
+- Why Random Forest reduces overfitting through bagging.
+- How XGBoost sequentially corrects previous prediction errors using gradient boosting.
+- The importance of cross-validation when selecting models.
+- How hyperparameter tuning affects model performance.
+- When further improvement depends more on feature engineering than on additional parameter tuning.
+
+---
+
+## Author
+
+**Aminjon Asoev**
+
+This repository is part of my machine learning learning journey and documents my practical implementation of tree-based algorithms before moving on to unsupervised learning methods such as K-Means, PCA, and Anomaly Detection.
